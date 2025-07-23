@@ -1,0 +1,177 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sedboi youtube</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">
+          <h1>🌧️ SEDBOI AUDIO</h1>
+          <p>Are you a sedboi? put your sed song in</p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- URL Input Section -->
+        <section class="url-section">
+          <div class="input-container">
+            <input
+              type="url"
+              id="youtube-url"
+              placeholder="Paste YouTube URL here..."
+              class="url-input" />
+            <button id="load-audio" class="load-btn">
+              <span>Load Audio</span>
+              <div class="loader hidden"></div>
+            </button>
+          </div>
+          <p class="help-text">
+            Enter any YouTube video URL to extract and process its audio
+          </p>
+        </section>
+
+        <!-- Audio Player Section -->
+        <section class="player-section hidden" id="player-section">
+          <div class="audio-player">
+            <audio id="audio-player" controls crossorigin="anonymous"></audio>
+            <div class="player-info">
+              <span id="current-time">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Effects Controls -->
+        <section class="effects-section hidden" id="effects-section">
+          <h2>Audio Effects</h2>
+
+          <div class="effects-grid">
+            <!-- Speed Control -->
+            <div class="effect-card">
+              <div class="effect-header">
+                <h3>🎶 Speed + Pitch</h3>
+                <span id="speed-value">1.0x</span>
+              </div>
+              <input
+                type="range"
+                id="speed-slider"
+                min="0.25"
+                max="2.0"
+                step="0.05"
+                value="1.0"
+                class="slider" />
+              <div class="slider-labels">
+                <span>0.25x (Low pitch)</span>
+                <span>2.0x (High pitch)</span>
+              </div>
+              <p class="effect-description">
+                Changes both speed and pitch together (like vinyl records)
+              </p>
+            </div>
+
+            <!-- Reverb Control -->
+            <div class="effect-card">
+              <div class="effect-header">
+                <h3>🏛️ Reverb</h3>
+                <span id="reverb-value">0%</span>
+              </div>
+              <input
+                type="range"
+                id="reverb-slider"
+                min="0"
+                max="100"
+                step="1"
+                value="0"
+                class="slider" />
+              <div class="slider-labels">
+                <span>Dry</span>
+                <span>Massive</span>
+              </div>
+            </div>
+
+            <!-- Rain Effect -->
+            <div class="effect-card">
+              <div class="effect-header">
+                <h3>🌧️ Rain</h3>
+                <span id="rain-value">0%</span>
+              </div>
+              <input
+                type="range"
+                id="rain-slider"
+                min="0"
+                max="100"
+                step="1"
+                value="0"
+                class="slider" />
+              <div class="slider-labels">
+                <span>None</span>
+                <span>Storm</span>
+              </div>
+              <button id="rain-toggle" class="rain-toggle">🔇</button>
+            </div>
+
+            <!-- Master Volume -->
+            <div class="effect-card">
+              <div class="effect-header">
+                <h3>🔊 Volume</h3>
+                <span id="volume-value">70%</span>
+              </div>
+              <input
+                type="range"
+                id="volume-slider"
+                min="0"
+                max="100"
+                step="1"
+                value="70"
+                class="slider" />
+              <div class="slider-labels">
+                <span>Silent</span>
+                <span>Loud</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preset Buttons -->
+          <div class="presets">
+            <h3>🎛️ Presets</h3>
+            <div class="preset-buttons">
+              <button class="preset-btn" data-preset="chill">
+                Chill Vibes
+              </button>
+              <button class="preset-btn" data-preset="study">Study Mode</button>
+              <button class="preset-btn" data-preset="sleep">
+                Sleep Sounds
+              </button>
+              <button class="preset-btn" data-preset="dramatic">
+                Dramatic
+              </button>
+              <button class="preset-btn" data-preset="reset">Reset</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Status Messages -->
+        <div id="status-message" class="status-message hidden"></div>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Created by arbab with a lot of sadness and ❤️ for atmospheric audio
+          experiences
+        </p>
+      </footer>
+    </div>
+
+    <script src="audio-effects.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
