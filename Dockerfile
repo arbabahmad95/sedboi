@@ -1,10 +1,9 @@
 # Use official Node.js LTS image
 FROM node:20
 
-# Install system dependencies: ffmpeg and python3-pip for yt-dlp
+# Install system dependencies: ffmpeg and yt-dlp
 RUN apt-get update && \
-    apt-get install -y ffmpeg python3-pip && \
-    pip3 install yt-dlp && \
+    apt-get install -y ffmpeg yt-dlp && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
